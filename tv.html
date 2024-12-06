@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <h4>H4</h4>
+    <h4><span id="timeframe-display"></span></h4>
 
     <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container" style="height: 100%; width: 100%;">
@@ -33,6 +33,9 @@
             // Get 'symbol' and 'timeframe' from the URL
             const symbol = getUrlParameter('symbol') || 'COINBASE:ADAUSD'; // Default value if not provided
             const timeframe = getUrlParameter('timeframe') || '240'; // Default value if not provided
+
+            // Set the timeframe in the <h4> span
+            document.getElementById('timeframe-display').textContent = `Timeframe: ${timeframe}`;
 
             // Inject the TradingView widget script with dynamic parameters
             const widgetScript = document.createElement('script');
